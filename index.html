@@ -3,69 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Document</title>
 </head>
 <body>
-    <script>
-    function frenzy(){
-    document.body.style.background = "cyan";
-    document.body.style.fontSize = "60px"
-}
-function toWhite(){
-    document.body.style.backgroundColor = "#fff";
-    document.body.style.color = "#000"
-}
-
-function toDark(){
-    document.body.style.backgroundColor = "#000";
-    document.body.style.fontSize = "30px"
-    document.body.style.color = "white"
-}
-/*
-var cow = prompt('Enter name: ');
-if (cow ==='Hafsa'){
-    alert('Weirdo get off my site');
-    document.body.innerHTML = 'HAFSA GET TF OFF MY SITE';
-}else if (cow === 'hafsa'){
-    alert('I know its you Hafsa capitalicize your first letter');
-    prompt('Enter your name properly you unhealthy cretin: ');
-}else {
-    alert('Welcome you beautiful human');
-}
-*/
-
-function myName(){
-    var weirdo = prompt('Whats your name:');
-    if (weirdo === 'saida' || weirdo === 'saida '){
-        alert('Dumbass put your first letter in caps. It is a name ffs ati "saida" have some respect for your name.');
-        weirdo = prompt('Enter your name correctly: ');
-            if (weirdo === 'Saida'|| weirdo==='Saida '){
-                alert('Yeah no this is not for you')
-                document.body.innerHTML = "GET TF OFF MY SITE"
-                document.body.style.textAlign = "center";
-                document.body.style.paddingTop = "25%";
-                document.body.style.fontSize = "60px";
-            }
-    }
-    else if (weirdo === 'Saida' || weirdo === 'Saida '){
-        alert('Yeah no this is not for you')
-        document.body.innerHTML = "GET TF OFF MY SITE"
-        document.body.style.textAlign = "center";
-        document.body.style.paddingTop = "25%";
-        document.body.style.fontSize = "60px";
-    }
-    else {
-        alert('Welcome you "human..."')
-    };
-};</script>
-
+    <script src="/scripts.js"></script>
     <h1 style="text-align: center;">AYYYYY WHAZZUUUUUP</h1>
-    <button onclick="toWhite()">Light</button>
-    <button onclick="toDark()">Dark</button><br>
+    <button onmouseover="toWhite()" style="background-color: white;color: black;">Light</button>
+    <button onmouseover="toDark()" style="background-color: black;color: white;">Dark</button><br>
     <p>Oi tell me your name first.</p>
         <button onclick="myName()">Name
             
         </button>
-    <button onclick="frenzy()">Forget these two weirdos tap me</button>
+    <button onclick="frenzy()" style="background-color: cyan;color: black;"><i>Cyan </i>but more</button> <hr>
+    <p>Anyway try out this <h1>Rock, Paper Scissors</h1>game</p>
+    <p>I'm not gonna explain this game to you am I?</p>
+    <button onclick="game()">Rock</button>
+    <button onclick="paper()">Paper</button>
+    <button onclick="scissors()">Scissors</button>
+
+    <div>Press any key to change the background color!</div>
+    <script>
+        alert('WARNING!!!!!!! DO NOT TOUCH ANY KEY')
+        
+        document.addEventListener('touchstart', function playRandomSound(){
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const randomFrequency = Math.random() * (1200 - 200) + 200;
+            oscillator.frequency.value = randomFrequency;
+            const waveforms = ['sine', 'square', 'triangle', 'sawtooth'];
+            oscillator.type = waveforms[Math.floor(Math.random()* waveforms.length)];
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            setTimeout(() => oscillator.stop(), 99999999999999);
+        });
+        /*document.addEventListener('keydown', function(){
+            const randomColour = `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
+            const randoColour = `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
+            document.body.style.backgroundColor = randomColour;
+            document.body.style.color = randoColour;
+            playRandomSound();
+        });*/
+    </script>
+    <a href="/piano.html"><button style="background-color: brown; color: white;">Piano</button></a>
 </body>
 </html>
